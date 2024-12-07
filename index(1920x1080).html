@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--javascript goes here-->
+
+
+  <script>
+  //portfolios js
+  function portfolio_table_toggle(){
+    const folio_main = document.getElementById('folio_main');
+
+    if (folio_main.style.display === "none"){
+      folio_main.style.display = "block";
+    }
+    else{
+      folio_main.style.display = "none";
+    }
+  }
+  function folio_gone(){
+    const folio_main = document.getElementById('folio_main');
+    folio_main.style.display = "none";
+  }
+
+  //html css js
+  function code_table_toggle(){
+    const coder_main = document.getElementById('coder_main');
+
+    if (coder_main.style.display === "none"){
+      coder_main.style.display = "block";
+    }
+    else{
+      coder_main.style.display = "none";
+    }
+  }
+  function coder_gone(){
+    const req_main = document.getElementById('req_main');
+    coder_main.style.display = "none";
+  }
+
+  //reqs js
+  function req_table_toggle(){
+    const req_main = document.getElementById('req_main');
+
+    if (req_main.style.display === "none"){
+      req_main.style.display = "block";
+    }
+    else{
+      req_main.style.display = "none";
+    }
+  }
+  function req_gone(){
+    const req_main = document.getElementById('req_main');
+    req_main.style.display = "none";
+  }
+  </script>
+
+
+  <!--javascript ends here-->
+
+  <title>sys_drv.95</title>
+  <link rel="icon" type="image/x-icon" href="media\favicon.ico.png">
+  <style>
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: #008080;
+  }
+
+  .taskbar_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    background-color: #C0C0C0;
+    border-bottom: 2px ridge white;
+    border-top: 2px ridge black;
+    padding: 0 10px;
+    z-index: 5;
+  }
+
+  .start_button {
+    width: 140px;
+    height: 56px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    border: 3px solid white;
+    border-top: 4px solid black;
+    border-left: 4px solid black;
+    margin-right: 8px;
+  }
+
+  .tab1 {
+    width: 351px;
+    height: 56px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 5px;
+    border: 2px solid black;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    cursor: pointer;
+    background-color: #c0c0c0;
+  }
+  .tab1:active{
+    border: 2px solid white;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+  }
+
+  .tab2 {
+    width: 351px;
+    height: 56px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 5px;
+    border: 2px solid black;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    cursor: pointer;
+    background-color: #c0c0c0;
+  }
+  .tab2:active{
+    border: 2px solid white;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+  }
+
+  .tab3 {
+    width: 351px;
+    height: 56px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 5px;
+    border: 2px solid black;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    cursor: pointer;
+    background-color: #c0c0c0;
+  }
+  .tab3:active{
+    border: 2px solid white;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+  }
+
+
+  .systray {
+    width: 180px;
+    height: 56px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 690px;
+    margin-right: 20px;
+    border: 2px ridge white;
+    border-top: 2px solid #404040;
+    border-left: 2px solid #404040;
+    background-color: #c0c0c0;
+  }
+  .systray:active{
+    border: 2px solid black;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+  }
+
+  .startmenu {
+    display: flex;
+    justify-content: flex;
+    align-items: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 69px;
+    left: 2px;
+    width: 285px;
+    height: 500px;
+    border: 2px solid black;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    background-color: #c0c0c0;
+    z-index: 10;
+    padding: 1px;
+  }
+
+  .vert_text_container {
+    height: 497px;
+    width: 34px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    margin-right: 1px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background-color: #606060;
+    color: #c0c0c0;
+  }
+  .vert_text{
+    margin-top: 10px;
+    font-size: 30px;
+    font-family: tahoma;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+  .button_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-START;
+    align-items: stretch;
+    height: 500px;
+    background-color: #c0c0c0;
+    width: 100%;
+  }
+
+  .button {
+    width: 100%;
+    height: 450px;
+    background-color: #c0c0c0;
+    cursor: pointer;
+    /*text*/
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding-left: 70px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+  }
+  .button_color1:hover { background-color: #5204f7; color: white; }
+  .button_color2:hover { background-color: #00b877; color: white; }
+  .button_color3:hover { background-color: #22b14c; color: white; }
+  .button_color4:hover { background-color: #ff6700; color: white; }
+  .button_color5:hover { background-color: #FF0030; color: white; }
+  .button_color6:hover { background-color: #cc0099; color: white; }
+
+  .centertable_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    position: absolute;
+    width: 1190px;
+    top: 170px;
+    right: 400px;
+    z-axis: 10;
+  }
+  .centertable {
+    width: 1100px;
+    height: 660px;
+    border: 3px solid black;
+    border-top: 3px solid white;
+    border-left: 3px solid white;
+    text-align: center;
+    overflow: hidden;
+    background-color: #c0c0c0;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+  .scrollable_tab{
+    justify-content: left;
+    align-items: left;
+    margin-top: 100px;
+    margin-left: 6px;
+    width: 98.3%;
+    height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 2px solid white;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    background-color: white;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+  .scrollable_tab::-webkit-scrollbar {
+    width: 20px;
+  }
+  .scrollable_tab::-webkit-scrollbar-thumb{
+    border: 2px solid black;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+  }
+  .scrollable_tab::-webkit-scrollbar-thumb {
+    background-color: #c0c0c0;
+    border-radius: 0px;
+  }
+  .scrollable_tab::-webkit-scrollbar-button{
+    width: 20px;
+    height: 20px;
+    background-color: #c0c0c0;
+  }
+
+
+  /*1*/
+  .port1_button_container{
+    position: absolute;
+    top: 620px;
+    left: 35px;
+    width: 20;
+  }
+  .port1_button{
+    width:100%;
+    height: 70px;
+    background-color: red;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid black;
+    color: white;
+    font-size: 12px;
+  }
+  /*2*/
+  .port2_button_container{
+    position: absolute;
+    top: 750px;
+    left: 35px;
+    width: 20;
+  }
+  .port2_button{
+    width:100%;
+    height: 70px;
+    background-color: red;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid black;
+    color: white;
+    font-size: 12px;
+  }
+  /*3*/
+  .port3_button_container{
+    position: absolute;
+    top: 880px;
+    left: 35px;
+    width: 20;
+  }
+  .port3_button{
+    width:100%;
+    height: 70px;
+    background-color: red;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid black;
+    color: white;
+    font-size: 12px;
+  }
+  /*4*/
+  .port4_button_container{
+    position: absolute;
+    top: 620px;
+    left: 150px;
+    width: 20;
+  }
+  .port4_button{
+    width:100%;
+    height: 70px;
+    background-color: red;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid black;
+    color: white;
+    font-size: 12px;
+  }
+  /*5*/
+  .port5_button_container{
+    position: absolute;
+    top: 750px;
+    left: 150px;
+    width: 70;
+  }
+  .port5_button{
+    width:100%;
+    height: 70px;
+    background-color: red;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid black;
+    color: white;
+    font-size: 12px;
+  }
+  /*6*/
+  .port6_button_container{
+    position: absolute;
+    top: 620px;
+    left: 265px;
+    width: 20;
+  }
+  .port6_button{
+    width:100%;
+    height: 70px;
+    background-color: red;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid black;
+    color: white;
+    font-size: 12px;
+  }
+  .linktosite_container{
+    position: absolute;
+    top: 880px;
+    left: 277px;
+    width: 70;
+  }
+  .linktosite{
+    width:100%;
+    height: 70px;
+    background-color: red;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid black;
+    color: white;
+    font-size: 12px;
+  }
+
+  .linktosite2_container{
+    position: absolute;
+    top: 880px;
+    left: 1600px;
+    width: 20;
+  }
+  .linktosite2{
+    width:100%;
+    height: 70px;
+    background-color: red;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid black;
+    color: white;
+    font-size: 12px;
+  }
+
+  .recyclebin_container{
+    position: absolute;
+    top: 880px;
+    left: 1800px;
+    width: 20;
+  }
+  .recyclebin{
+    width:100%;
+    height: 70px;
+    background-color: red;
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid black;
+    color: white;
+    font-size: 12px;
+  }
+  .portfolio_2ndtable_main{ /*treat as a container for the buttonsz*/
+    margin-left: 177px;
+    margin-top: 110px;
+    display: none;
+    justify-content: flex;
+    align-items: flex;
+    flex-direction: row;
+    position: absolute;
+    width: 385px;
+    height: 200px;
+    border: 2px solid black;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    background-color: #c0c0c0;
+    z-index: 102;
+    padding: 1px;
+  }
+  .portfolio_2ndtable_buttons{
+    display: block;
+    text-align: left;
+    width: 97%;
+    height 20px;
+    padding: 5px;
+    background-color: #c0c0c0;
+    color: black;
+  }
+
+  .code_2ndtable_main {
+    margin-left: 175px;
+    margin-top: 110px;
+    display: none;
+    justify-content: flex;
+    align-items: flex;
+    flex-direction: row;
+    position: absolute;
+    width: 285px;
+    height: 200px;
+    border: 2px solid black;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    background-color: #c0c0c0;
+    z-index: 102;
+    padding: 1px;
+    } /*treat as a container for the portfolio_2ndtable_buttons (i cant be bothered to change the name)*/
+
+    .reqs_2ndtable_main{
+      margin-left: 175px;
+      margin-top: 110px;
+      display: none;
+      justify-content: flex;
+      align-items: flex;
+      flex-direction: row;
+      position: absolute;
+      width: 285px;
+      height: 200px;
+      border: 2px solid black;
+      border-top: 2px solid white;
+      border-left: 2px solid white;
+      background-color: #c0c0c0;
+      z-index: 102;
+      padding: 1px;
+      } /*treat as a container for the portfolio_2ndtable_buttons (i cant be bothered to change the name)*/
+
+      .header_table {
+        display: relative;
+        width: 99.4%;
+        height: 30px;
+        background-color: #000080;
+        border: none;
+        bottom: 2px;
+        margin-top: 2px;
+        justify-content: center;
+        margin-left: 2px;
+        z-index: 200
+      }
+
+      table {
+        z-index: 1;
+      }
+      </style>
+    </head>
+
+    <body>
+      <!--taskbar-->
+      <div class="taskbar_container">
+        <!-- Start button -->
+        <div class="start_button">
+          sys_drv.95 logo
+        </div>
+
+        <!--taskbartabs-->
+        <button class="tab1">
+          sample text
+        </button>
+        <button class="tab2">
+          sample text
+        </button>
+        <button class="tab3">
+          youtub vide
+          link</a>
+        </button>
+
+        <!--systray-->
+        <button class="systray">
+          sign in/log in/out
+        </button>
+      </div>
+
+      <!--start menu-->
+      <div class="startmenu">
+        <!-- Vertical Text Container -->
+        <div class="vert_text_container">
+          <div class="vert_text">
+            Windows 95
+          </div>
+        </div>
+
+        <!--button container-->
+
+        <div class="button_container">
+          <button class="button button_color1" name="USC.EDU.PH" onclick="window.open('https://usc.edu.ph/', '_blank')" style="font-family: w95fa; font-size: 20px; font-weight: bold;">
+            USC Website
+          </button>
+
+          <button class="button button_color2" name="inspoboard" style="font-family: w95fa; font-size: 20px; font-weight: bold;" onclick="window.open('https://pin.it/7sbcQHQic', '_blank')">
+            Inspiration Board
+          </button>
+
+          <button class="button button_color3" name="portfolios" style="font-family: w95fa; font-size: 20px; font-weight: bold;" id="folio_toggle" onmouseenter="portfolio_table_toggle()"  onmouseleave = "folio_gone()">
+            <div class="portfolio_2ndtable_main" id = "folio_main">
+              <!--port1-->
+              <div class="portfolio_2ndtable_buttons button_color1">
+                <span style="margin-left: 40px; font-size: 13px;">Portfolio 1 - COMPUTER SCIENCE: THE DISCIPLINE</span>
+              </div>
+              <!--port2-->
+              <div class="portfolio_2ndtable_buttons button_color2">
+                <span style="margin-left: 40px; font-size: 13px;">Portfolio 2 - Data, Information, and Information Systems</span>
+              </div>
+              <!--port3-->
+              <div class="portfolio_2ndtable_buttons button_color3">
+                <span style="margin-left: 40px; font-size: 13px;">Portfolio 3 - Number Systems</span>
+              </div>
+              <!--port4-->
+              <div class="portfolio_2ndtable_buttons button_color4">
+                <span style="margin-left: 40px; font-size: 13px;">Portfolio 4 - Computer Hardware and Software: Their Implement...</span>
+              </div>
+              <!--port5-->
+              <div class="portfolio_2ndtable_buttons button_color5">
+                <span style="margin-left: 40px; font-size: 13px;">Portfolio 5 - Comparative Study On Different Types Of Motherbo...</span>
+              </div>
+              <!--port6-->
+              <div class="portfolio_2ndtable_buttons button_color6">
+                <span style="margin-left: 40px; font-size: 13px;">Portfolio 6 - Comparative Study on Different Types of Computers</span>
+              </div>
+            </div>
+            Portfolios
+          </button>
+
+          <button class="button button_color4" name="spaghetti_code" style="font-family: w95fa; font-size: 20px; font-weight: bold;" onmouseenter="code_table_toggle()" onmouseleave = "coder_gone()">
+            <div class="code_2ndtable_main" id = "coder_main">
+              <div class="portfolio_2ndtable_buttons button_color1">
+                <span style="margin-left: 40px; font-size: 13px;">ABSOLUTE MESS</span>
+              </div>
+            </div>
+            HTML, CSS, JS
+          </button>
+
+          <button class="button button_color5" name="project_requisites"  style="font-family: w95fa; font-size: 20px; font-weight: bold;" onmouseenter="req_table_toggle()" onmouseleave = "req_gone()">
+            <div class="reqs_2ndtable_main" id="req_main">
+              <div class="portfolio_2ndtable_buttons button_color1">
+                <span style="margin-left: 40px; font-size: 13px;">also a complete mess</span>
+              </div>
+            </div>
+            Project Requisites
+          </button>
+        </div>
+      </div>
+
+      <div class="port1_button_container">
+        <button class="port1_button">portfolio1</button>
+      </div>
+
+      <div class="port2_button_container">
+        <button class="port2_button">portfolio2</button>
+      </div>
+
+      <div class="port3_button_container">
+        <button class="port3_button">portfolio3</button>
+      </div>
+
+      <div class="port4_button_container">
+        <button class="port4_button">portfolio4</button>
+      </div>
+
+      <div class="port5_button_container">
+        <button class="port5_button">portfolio5</button>
+      </div>
+
+      <div class="port6_button_container">
+        <button class="port6_button">portfolio6</button>
+      </div>
+
+      <div class="linktosite_container">
+        <button class="linktosite">a site</button>
+      </div>
+
+      <div class="linktosite2_container">
+        <button class="linktosite2">a site</button>
+      </div>
+
+      <div class="recyclebin_container">
+        <button class="recyclebin">image</button>
+      </div>
+
+      <!--main content table -->
+      <div class="centertable_container">
+        <div class="centertable">
+          <div class="header_table">
+            <style media="screen">
+              .decoration_thing{
+                margin-top: 637px;
+                margin-left: 0px;
+                width: 857px;
+                height: 15px;
+                border: 2px solid white;
+                border-top: 2px solid #909090;
+                border-left: 2px solid #909090;
+              }
+              .decoration_thing2{
+                margin-top: 637px;
+                margin-left: -3px;
+                width: 220px;
+                height: 15px;
+                border: 2px solid white;
+                border-top: 2px solid #909090;
+                border-left: 2px solid #909090;
+
+              }
+            </style>
+            <iframe class="decoration_thing"></iframe>
+            <iframe class="decoration_thing2"></iframe>
+          </div>
+          <div class="scrollable_tab" style="font-size: 15px">
+            <span>LOREM IPSUM</span>
+          </div>
+        </div>
+
+        <style>
+        .smallertab_container{
+          display: flex;
+          justify-content: flex;
+          position: absolute;
+          top: 12px;
+          left: 1200px;
+          width: 250px;
+          height: 560px;
+          border: 2px solid #000000;
+          text-align: center;
+          background-color: #c0c0c0;
+          border: 2px solid black;
+          border-top: 2px solid white;
+          border-left: 2px solid white;
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        .smallertab{
+          width: 96%;
+          margin-left: 2px;
+          margin-top: 140px;
+          height: 400px;
+          background-color: white;
+          border: 2px solid white;
+          border-top: 2px solid black;
+          border-left: 2px solid black;
+        }
+
+        .music_player{
+
+        }
+        </style>
+        <!--smaller content tab-->
+        <div class="smallertab_container">
+          <div class="smallertab">
+            <span>lorem ipsum</span>
+          </div>
+        </div>
+      </div>
+    </body>
+    </html>
